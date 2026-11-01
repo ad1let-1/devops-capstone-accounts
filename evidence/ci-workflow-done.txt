@@ -1,7 +1,8 @@
 GitHub Actions CI Build
-Run: https://github.com/ad1let-1/devops-capstone-accounts/actions/runs/41323294594
+Run: https://github.com/ad1let-1/devops-capstone-accounts/actions/runs/41325106231
 Job: build
 Conclusion: success
+Run unit tests with nose: 27 tests (see security-headers-done.txt)
 Steps:
 Set up job — success
 Initialize containers — success
