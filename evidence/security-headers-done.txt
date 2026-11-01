@@ -1,0 +1,63 @@
+Command: python -m unittest discover -s tests -v
+
+test_db_create (test_cli_commands.TestFlaskCLI)
+It should call the db-create command ... ok
+test_add_a_account (test_models.TestAccount)
+It should Create an account and add it to the database ... ok
+test_create_an_account (test_models.TestAccount)
+It should Create an Account and assert that it exists ... ok
+test_delete_an_account (test_models.TestAccount)
+It should Delete an account from the database ... ok
+test_deserialize_an_account (test_models.TestAccount)
+It should Deserialize an account ... ok
+test_deserialize_with_key_error (test_models.TestAccount)
+It should not Deserialize an account with a KeyError ... ok
+test_deserialize_with_type_error (test_models.TestAccount)
+It should not Deserialize an account with a TypeError ... ok
+test_find_by_name (test_models.TestAccount)
+It should Find an Account by name ... ok
+test_list_all_accounts (test_models.TestAccount)
+It should List all Accounts in the database ... ok
+test_read_account (test_models.TestAccount)
+It should Read an account ... C:\Users\admin\Documents\ChatGPT\ll\devops_publish\service\models.py:76: LegacyAPIWarning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  return cls.query.get(by_id)
+ok
+test_serialize_an_account (test_models.TestAccount)
+It should Serialize an account ... ok
+test_update_account (test_models.TestAccount)
+It should Update an account ... ok
+test_bad_request (test_routes.TestAccountService)
+It should not Create an Account when sending the wrong data ... ok
+test_cors_security (test_routes.TestAccountService)
+It should return a CORS header ... ok
+test_create_account (test_routes.TestAccountService)
+It should Create a new Account ... ok
+test_delete_account (test_routes.TestAccountService)
+It should Delete an Account ... ok
+test_delete_account_not_found (test_routes.TestAccountService)
+It should not Delete an Account that is not found ... ok
+test_get_account (test_routes.TestAccountService)
+It should Read a single Account ... ok
+test_get_account_not_found (test_routes.TestAccountService)
+It should not Read an Account that is not found ... ok
+test_health (test_routes.TestAccountService)
+It should be healthy ... ok
+test_index (test_routes.TestAccountService)
+It should get 200_OK from the Home Page ... ok
+test_list_accounts (test_routes.TestAccountService)
+It should List all Accounts ... ok
+test_list_accounts_empty (test_routes.TestAccountService)
+It should return an empty list when no Accounts exist ... ok
+test_security_headers (test_routes.TestAccountService)
+It should return security headers ... ok
+test_unsupported_media_type (test_routes.TestAccountService)
+It should not Create an Account when sending the wrong media type ... ok
+test_update_account (test_routes.TestAccountService)
+It should Update an existing Account ... ok
+test_update_account_not_found (test_routes.TestAccountService)
+It should not Update an Account that is not found ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.426s
+
+OK

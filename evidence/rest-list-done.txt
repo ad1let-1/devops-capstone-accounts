@@ -1,0 +1,16 @@
+curl.exe -sS -i -X GET 'http://127.0.0.1:8080/accounts'
+
+HTTP/1.1 200 OK
+Server: Werkzeug/2.1.2 Python/3.9.25
+Date: Sun, 01 Nov 2026 15:56:15 GMT
+Content-Type: application/json
+Content-Length: 142
+Access-Control-Allow-Origin: *
+Permissions-Policy: browsing-topics=()
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; object-src 'none'
+Referrer-Policy: strict-origin-when-cross-origin
+Connection: close
+
+[{"address":"123 Test Street","date_joined":"2026-11-01","email":"demo@example.com","id":1,"name":"Demo Customer","phone_number":"555-0100"}]

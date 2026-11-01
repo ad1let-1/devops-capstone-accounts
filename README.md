@@ -1,5 +1,7 @@
 # Accounts Service — DevOps Capstone
 
+[![CI Build](https://github.com/ad1let-1/devops-capstone-accounts/actions/workflows/ci-build.yaml/badge.svg)](https://github.com/ad1let-1/devops-capstone-accounts/actions/workflows/ci-build.yaml)
+
 This project starts from the [IBM course template](https://github.com/ibm-developer-skills-network/aolwx-devops-capstone-template). The REST route implementations, tests, security setup, CI, and Docker configuration were adapted from [MartinTheMaker/devops-capstone-project](https://github.com/MartinTheMaker/devops-capstone-project) under the Apache 2.0 license. Evidence of CI, deployment, and board progress must come from this project's own runs.
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)

@@ -1,0 +1,14 @@
+GitHub Actions CI Build
+Run: https://github.com/ad1let-1/devops-capstone-accounts/actions/runs/41323294594
+Job: build
+Conclusion: success
+Steps:
+Set up job — success
+Initialize containers — success
+Checkout — success
+Install dependencies — success
+Lint with flake8 — success
+Run unit tests with nose — success
+Post Checkout — success
+Stop containers — success
+Complete job — success
