@@ -5,6 +5,7 @@ This module creates and configures the Flask app and sets up the logging
 and SQL database
 """
 import sys
+import os
 from flask import Flask
 from service import config
 from service.common import log_handlers
@@ -13,7 +14,7 @@ from flask_cors import CORS
 
 # Create Flask application
 app = Flask(__name__)
-talisman = Talisman(app)
+talisman = Talisman(app, force_https=os.getenv("FORCE_HTTPS", "true").lower() == "true")
 CORS(app)
 app.config.from_object(config)
 

@@ -1,0 +1,47 @@
+name: Build and verify Kubernetes deployment
+
+on:
+  push:
+    paths:
+      - .github/workflows/cluster-verify.yaml
+      - Dockerfile
+      - deploy/**
+      - service/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image and save image listing
+        run: |
+          docker build -t accounts:1.0 .
+          mkdir -p evidence
+          docker images accounts --format 'Name={{.Repository}} Tag={{.Tag}} Image ID={{.ID}} Created={{.CreatedSince}} Size={{.Size}}' | tee evidence/kube-images.txt
+      - name: Create local Kubernetes cluster
+        uses: helm/kind-action@v1.14.0
+      - name: Deploy and inspect accounts service
+        run: |
+          kind load docker-image accounts:1.0
+          kubectl apply -f deploy/deployment.yaml
+          kubectl apply -f deploy/service.yaml
+          kubectl rollout status deployment/accounts --timeout=180s
+          kubectl get deployments,pods,replicasets,services -o wide | tee evidence/kube-deploy-accounts.txt
+          kubectl port-forward service/accounts 8080:8080 > /tmp/port-forward.log 2>&1 &
+          for i in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:8080/ > evidence/kube-app-output.json; then break; fi
+            sleep 2
+          done
+          test -s evidence/kube-app-output.json
+          cat evidence/kube-app-output.json
+      - name: Publish verified output files
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add evidence/kube-images.txt evidence/kube-deploy-accounts.txt evidence/kube-app-output.json
+          git commit -m 'Record successful Docker and Kubernetes verification' || exit 0
+          git push
