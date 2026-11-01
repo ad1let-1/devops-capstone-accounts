@@ -1,0 +1,12 @@
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES         SELECTOR
+deployment.apps/accounts   1/1     1            1           1s    accounts     accounts:1.0   app=accounts
+
+NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE                          NOMINATED NODE   READINESS GATES
+pod/accounts-d6574b886-mbcdx   1/1     Running   0          1s    10.244.0.5   chart-testing-control-plane   <none>           <none>
+
+NAME                                 DESIRED   CURRENT   READY   AGE   CONTAINERS   IMAGES         SELECTOR
+replicaset.apps/accounts-d6574b886   1         1         1       1s    accounts     accounts:1.0   app=accounts,pod-template-hash=d6574b886
+
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/accounts     ClusterIP   10.96.161.157   <none>        8080/TCP   1s    app=accounts
+service/kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP    29s   <none>
